@@ -1,57 +1,440 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
-	  <meta charset="utf-8">
-	  </head>
-	  <style type="text/css">
-	  	 body{
-		 	 	min-width: 600px; /*2*sub+extra*/
-					 }
-					    .title{
-					        text-align: center;
-						    padding: 20px;
-						            background-color: rgba(155,155,0,.5); 
-							            color: #fff;
-								       }
-								       	 .container{
-									         float: left;
-										         width: 100%;
-											 	 }
-												 	 .main{
-													         /*width: 100%;*/
-														         height: 300px;
-															         margin-left: 210px;
-																         margin-right: 190px;
-																	         background-color: rgba(255,0,0,.5); 
-																		 	 }
-																			 	 .sub{
-																				 	 	 /*position: relative;*/
-																						 	 	 /*left: -210px;*/
-																								 	 	 width: 200px;
-																										 	 	 height: 300px;
-																												 	 	 float: left;
-																														 	 	 margin-left: -100%;
-																																 	 	 background-color:rgba(0,255,0,0.5); 
-																																		 	 }
-																																			    .extra{
-																																			             /*position: relative;*/
-																																				              /*right: -190px;*/
-																																					               width: 180px;
-																																						                height: 300px;
-																																								         margin-left: -180px;
-																																									          float: left;
-																																										           background-color:rgba(0,0,255,0.5); 
-																																											         }
-																																												 </style>
-																																												 <body>
-																																												 <div class="title"><h2>双飞翼</h2></div>
-																																												     <div class="container">
-																																												         	 <div class="main"></div>
-																																														     </div>
-																																														         	 <div class="sub"></div>
-																																																     	 <div class="extra"></div>
-																																																	     
-																																																	     </body>
-																																																	     </html>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script src="js/jquery-1.11.3.js"></script>
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/public.css">
+ <style>
+       *{
+       	  padding: 0;
+       	  margin: 0;
+       }
+       a {
+	    text-decoration: none;
+	    outline-width: 0;
+	    color: #258fb8;
+	    outline: none;
+	}
+     .container{
+        	width: 100%;
+        	height: 1000px;
+        	font-family:"Times New Roman",Georgia,Serif;
+        }
+        .main{
+            width: 70%;
+            height: 1000px;
+            background-color: #fff;
+            float: left;
+            text-align: center;
+        }
+        .slider{
+            width: 28%;
+            height: 1200px;
+            background-color: #2D3A4B;
+            float: left;
+            text-align: center;
+            border-left: 4px solid #0097c1;
+        }
+        .img-box{
+        	margin-top: 10px;
+        	width: 10rem;
+        	height: 10rem;
+        	position: relative;
+        	left: 50%;
+            margin-bottom: 20px;
+        }
+        .img-box img{
+        	display: inline-block;
+        	width: 100%;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+       .clearfex:after{
+         content: "";
+       	 display: table;
+       	 height: 0;
+       	 visibility:hidden;
+       	 clear: both;
+       }
+       .split {
+       	 margin-bottom: 30px;
+       }
+       .split span{
+       	height: 1px;
+       	width: 30%;
+       	display: inline-block;
+       	border-top:1px solid #fff; 
+       }
+       .msg i,
+       .slider i{
+       	 color: #0096C0;
+       }
+        
+       .msg span{
+       	 color: #fff;
+       }
+       .msg div{
+       	margin-bottom: 20px;
+       } 
+       
+        .main>.content{
+        	width: 80%;
+        	text-align: left;
+        	margin-left: 10px;
+        }
 
+       .main>div>div{
+       	 margin-top: 10px;
+       }
+       .main .sub-title{
+       	  vertical-align: middle;
+       }
+
+       .main .sub-title img{
+       	padding: 5px;
+           width: 4rem;
+           height: 4rem;
+           border: 2px solid black;
+           border-radius: 50%;
+           border: 10px solid #dedede;
+           vertical-align: middle;
+       }
+       .main .sub-title .line{
+       	  display: inline-block;
+       	  height: 2px;
+       	  border-top: 2px solid black; 
+       	  width: 60%;
+       }
+       .content .exp{
+       	  margin-left: 2rem;
+       	  padding-left: 4rem;
+       	  width: 62%;
+       } 
+     
+       .content .exp .tl-item{
+		    position: relative;
+		    padding-left: 3rem;
+		    border-left: 2px solid #BDBDBD;
+       }
+       .content .exp .tl-item .time {
+	    position: absolute;
+	    left: 0;
+	    top: 1.5rem;
+	    margin-left: -64px;
+	    line-height: 16px;
+	    font-size: 12px;
+	    color: #8a8c8f;
+	}
+     .des-one,.des-two,.des-three{
+            padding-top: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #aaa;
+     }
+	.content .exp .tl-item .two{
+		position: absolute;
+	    left: 0;
+	    top: 10rem;
+	}
+     .content .exp .tl-item .three{
+     	 position: absolute;
+	     left: 0;
+	     top: 18rem;
+     }
+	 .time b {
+    font-size: 18px;
+    font-weight: 400;
+   }
+
+   .study-tl .time em {
+    display: block;
+    margin-top: 2px;
+  }
+
+  .time:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 56px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #d0d6d9;
+}
+
+/*skills*/
+
+  .skills{
+  	 margin-left: 3rem;
+  }
+  #crumbs ul{
+        list-style: none;
+    }
+    #crumbs ul li a{
+        float: left;
+        margin-right: 30px;
+        display: inline-block;
+        position: relative;
+        height: 30px;
+        padding: 10px 20px 0 20px;
+        text-align: center;
+        background-color: #3498db;
+        color: #fff;
+        text-decoration: none; 
+        font-size: 20px;
+    }
+
+     #crumbs ul li a:after{
+        content: "";
+        /* border-left: 20px solid green;
+        border-top: 20px solid red;
+        border-bottom: 20px solid red; */
+          border-left: 20px solid #3498db;
+		  border-top: 20px solid transparent;
+		  border-bottom: 20px solid transparent;
+        position: absolute;
+        right: -20px;
+        top: 0;
+    }
+
+    #crumbs ul li a:before{
+        content: "";
+        border-top: 20px solid #3498db;
+        border-bottom: 20px solid #3498db; 
+        border-left: 20px solid transparent;
+        position: absolute;
+        top: 0;
+        left: -20px;
+  }
+  #crumbs ul{
+  	 margin-top: 10px;
+  }
+
+  #crumbs .lab span{
+      display: inline-block;
+    font-weight: normal;
+    font-size: 10px;
+    color: #fff;
+    height: 18px;
+    line-height: 18px;
+    float: left;
+    padding: 0 5px 0px 10px;
+    position: relative;
+    border-radius: 0 5px 5px 0;
+    margin: 5px 9px 5px 8px;
+    font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+  }
+
+   .color1 {
+    background: #ff945c;
+ }
+ .color3 {
+    background: #ba8f6c;
+}
+
+.color4 {
+    background: #cfb7c4;
+}
+ .color5 {
+    background: #7b5d5f;
+}
+
+ .lab div{
+ 	 float: left;
+ }
+  
+  .lab span.color1:before {
+    border-right-color: #ff945c;
+}
+
+.lab span.color3:before {
+    border-right-color: #ba8f6c;
+}
+.lab span.color4:before {
+    border-right-color: #cfb7c4;
+}
+.lab span.color5:before {
+    border-right-color: #7b5d5f;
+}
+
+    .lab span:before {
+    content: " ";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 0;
+    left: -18px;
+    border: 9px solid transparent;
+}
+ .lab span:after {
+    content: " ";
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.3);
+    position: absolute;
+    top: 7px;
+    left: 2px;
+}
+/*about*/
+  .about{
+  	 margin-left: 3rem;
+  }
+
+  .edu{
+  	margin-left: 3rem;
+  	margin-bottom: 4rem;
+  }
+
+ </style>
+<body>
+	  <div class="container">
+	  	  <div class="main">
+	  	        <div class="content clearfex">
+		  	  	    <div class="sub-title clearfex">
+		  	  	    	 <img src="imgs/214349.png" alt="" style="border: 10px solid rgb(48,108,182)">
+		  	  	    	 <span>ABOUT ME</span>
+		  	  	    </div>
+		  	  	    <div class="about clearfex">
+		  	  	    	<p>学校：南阳理工学院 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;专业：软件工程
+		  	  	    	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学历：本科(13.9~17.6)</p> 
+		  	  	    	 <br>
+		  	  	    	 <p>性别：男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出生年月：93.03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         籍贯：河南 周口
+		  	  	    	 </p>
+		  	  	    </div>
+		  	  	     <div class="sub-title">
+		  	  	    	 <img src="imgs/214322.png" alt="" style="border: 10px solid rgb(232,62,74)">
+		  	  	    	 <span>SKILLS</span>
+		  	  	    </div>
+		  	  	    <div class="skills clearfex">
+		  	  	    	     <div id="crumbs">
+						        <ul class="clearfex">
+						            <li><a href="#">web开发</a></li>
+						            <li class="lab">
+						              <div>
+						              	<span class="color1">HTML+CSS+JavaScript</span>
+                                         <span class="color5">
+                                         	HTML5+CSS3
+                                         </span>
+                                         <span class="color3">页面性能优化</span>
+                                         <span class="color4">SEO</span>
+                                         <span class="color3">BootStrap</span>
+                                         <span class="color1">jQuery</span>
+                                         <span class="color5">Angular</span>
+                                         <span class="color4">less</span>
+                                         <span class="color3">webpack</span>
+						              </div>
+						                 
+						              </li>
+						        </ul>
+						        <ul class="clearfex">
+						            <li><a href="#">后台开发</a></li>
+						            <li class="lab">
+						              <div>
+                                         <span class="color1">Java</span>
+                                         <span class="color3">php</span>
+                                         <span class="color5">MySql</span>
+						              </div>
+						              </li>
+						        </ul>
+						        <ul class="clearfex">
+						            <li><a href="#">Linux/Unix</a></li>
+						             <li class="lab">
+						              <div>
+                                         <span class="color4">Fedora/Ubuntu</span>
+                                         <span class="color3">xampp部署web服务器</span>
+						              </div>
+						              </li>
+						        </ul>
+						         <ul class="clearfex">
+						            <li><a href="#">Other</a></li>
+						            <li class="lab">
+						              <div>
+						            <span class="color3">Git版本控制工具</span>
+						            </div>
+						            </li>
+						         </ul>
+						    </div>
+		  	  	    </div>
+		  	  	     <div class="sub-title">
+		  	  	    	 <img src="imgs/230309.png" alt="" style="border: 10px solid rgb(242,192,59)">
+		  	  	    	 <span>EXPERIENCE</span>
+		  	  	    </div>
+		  	  	     <div class="exp clearfex">
+		  	  	     	  <div class="tl-item">
+		  	  	     	  	    <div class="des-one">
+		  	  	     	  	    	<p> <b>英雄时刻</b>  | 独立开发</p>
+		  	  	     	  	    	(因个人兴趣开发的项目，前端+后端) <br>	
+                                    <p>地址：<a href="http://freehero.applinzi.com">http://freehero.applinzi.com</a></p>
+                                    <p>前端技术栈:BootStrap+AngularJs</p>
+                                    <p>后端技术栈:php+MySql</p>
+                                    <p>前端AngularJs单页面应用，高效加载；双向数据绑定 </p>
+                                    <p>php操作数据库，返回相应的Json格式英雄数据供前端请求 </p> 
+		  	  	     	  	    </div>
+                                <span class="time">
+                                	 <b>2016年</b> <br>
+                                	 <em>10~11月</em>
+                                </span>
+		  	  	     	  	    <div class="des-two">
+		  	  	     	  	       <b>淘玉商城</b> 	
+		  	  	     	  	       <p>地址：<a href="http://taoyumall.com/">http://taoyumall.com/</a></p>
+		  	  	     	  	       前端技术栈：DIV+CSS网页布局、Ajax异步请求、jQuery <br>
+		  	  	     	  	       DIV+CSS实现商品网页布局及样式,Ajax异步请求局部更新商品 <br>
+		  	  	     	  	       用户登录注册表单验证，sessionStorage存储用户登录信息 
+		  	  	     	  	     </div>
+		  	  	     	  	     <span class="time  two">
+                                	 <b>2016年</b> <br>
+                                	 <em>7~9月</em>
+                                </span>
+                                 <div class="des-three">
+                                  <b>南阳市珍艾康商贸有限公司网站</b>   | 南阳跃龙门科技有限公司
+                                   <p>地址：<a href="http://www.hnzak.com/">http://www.hnzak.com/</a></p>
+                                   网站的维护，页面性能优化 
+                                  </div>
+		  	  	     	  	     <span class="time three">
+                                	 <b>2016年</b> <br>
+                                	 <em>5~7月</em>
+                                </span>
+		  	  	     	  </div>
+		  	  	     </div>
+		  	  	     <div class="sub-title last">
+		  	  	    	 <img src="imgs/214347.png" alt="" style="border: 10px solid rgb(33,172,67)">
+		  	  	    	 <span>校园经历<!-- EDUCATION --></span>
+		  	  	    </div>
+		  	  	    <div class="edu">
+		  	  	           <b>南阳跃龙门科技有限公司</b>  | 实习
+                          <p> 2016.5~2016.11</p>
+                           <br>
+		  	  	    	  <b>IBM编程马拉松</b>  | 参赛人员
+                          <p> 2015.6</p>
+                          <p>活动主要展示个人的独立设计和编写的项目，分享一些独特的创新之处。</p> 
+                           <br>
+                         <b>南阳谷歌开发者社区(南阳GDG)技术交流 </b> 
+                         <p>2014.11</p> 
+                        <p>活动期间共同探讨如何使用谷歌技术、网络开源技术、网络开放技术进行创业。</p> 
+		  	  	    </div>
+	  	  	    </div>
+	  	  </div>
+	  	  <div class="slider">
+	  	  	   <h1 style="color: #0096C0; margin-top: 50px;">葛熠</h1>
+	  	  	   <h4>web前端</h4>
+	  	  	   <div class="img-box"><img src="imgs/json.png" alt=""></div>
+	  	  	   <div class="split">
+	  	  	   	  <span></span>
+	  	  	   	  <i class="fa fa-refresh fa-spin fa-lg"></i> 
+	  	  	   	  <span></span>
+	  	  	   </div>
+	  	  	   <div class="msg">
+                     <div><i class="fa fa-envelope fa-lg"></i>&nbsp;&nbsp;<span>geyige_cool@163.com</span></div>
+	  	  	   	       <div><i class="fa fa-mobile-phone  fa-lg"></i>&nbsp;&nbsp;<span>+86 15201593536</span></div>
+	  	  	   	       <div><i class="fa fa-map-marker fa-lg"></i>&nbsp;&nbsp;<span>海淀区 北京</span></div>
+	  	  	   </div>
+	  	  </div>
+	  </div>
+</body>
+</html>
